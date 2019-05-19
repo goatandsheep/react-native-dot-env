@@ -25,7 +25,7 @@ $ npm install babel-plugin-dotenv
 ```
 DB_HOST=localhost
 DB_USER=root
-DB_PASS=s1mpl3
+DB_PASS=$SECRET_KEY_FROM_SYSTEM_ENV
 ```
 
 In **whatever.js**
@@ -38,3 +38,7 @@ db.connect({
   password: DB_PASS
 });
 ```
+
+## Troubleshooting
+
+- Make sure the required system environment variables are properly exported in your build system / dev machine
