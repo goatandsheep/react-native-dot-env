@@ -34,12 +34,30 @@ module.exports = function (data) {
                       throw path.get('specifiers')[idx].buildCodeFrameError('Try to import dotenv variable "' + importedId + '" which is not defined in any ' + configFile + ' files.')
                     }
 
-                    var binding = path.scope.getBinding(localId);
-                    binding.referencePaths.forEach(function(refPath){
-                      refPath.replaceWith(t.valueToNode(config[importedId]))
-                    });
-                  })
+                    let valueToBeReplaced
+                    const actualValueFromConfigFile = `${config[importedId]}`
+                    if (actualValueFromConfigFile.startsWith('$')) {
+                      const systemEnvVarName = actualValueFromConfigFile.substring(1)
+                      if (!process.env[systemEnvVarName]) {
+                        throw path
+                          .get('specifiers')
+                          [idx].buildCodeFrameError(
+                            'Trying to use system environment variable "' +
+                              actualValueFromConfigFile +
+                              '" which is not defined'
+                          )
+                      }
+                      valueToBeReplaced = process.env[systemEnvVarName]
+                    } else {
+                      valueToBeReplaced = actualValueFromConfigFile
+                    }
 
+                    var binding = path.scope.getBinding(localId)
+                    binding.referencePaths.forEach(function(refPath) {
+                      refPath.replaceWith(t.valueToNode(valueToBeReplaced))
+                    })
+                  })
+                  
                   path.remove();
                 }
             }

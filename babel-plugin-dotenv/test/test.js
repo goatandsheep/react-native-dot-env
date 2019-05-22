@@ -32,6 +32,21 @@ describe('myself in some tests', function() {
     expect(result.code).to.be('\'use strict\';\n\nconsole.log(\'abc123\');\nconsole.log(\'username\');')
   })
 
+  it('should load env from system env', function(){
+    process.env.ENV_API_KEY='THISISNOTASECRET'
+    var result = babel.transformFileSync('test/fixtures/system-env/source.js')
+    expect(result.code).to.be('\'use strict\';\n\nconsole.log(\'THISISNOTASECRET\');')
+  })
+
+  it('should throw if imported system env is not present', function() {
+    delete process.env.ENV_API_KEY
+    expect(function(){
+      babel.transformFileSync('test/fixtures/system-env/source.js')
+    }).to.throwException(function (e) {
+      expect(e.message).to.contain("Trying to use system environment variable ");
+    });
+  });
+
   it('should load empty variable as empty string ', function(){
     var result = babel.transformFileSync('test/fixtures/empty-values/source.js')
     expect(result.code).to.be('\'use strict\';\n\nconsole.log(\'abc123\');\nconsole.log(\'username\');\nconsole.log(\'\');')

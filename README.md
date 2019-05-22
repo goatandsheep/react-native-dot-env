@@ -28,31 +28,32 @@ $ npm install metro-react-native-babel-preset --save-dev
 
 ## Usage
 
-Add your app configuration in an **.env** file.
+Add your app configuration in an **.env** file. Prefix your values with `$` to obtain from system env.
 
 ```
 API_KEY=lorem
 ANOTHER_CONFIG=foobar
+ANOTHER_API_KEY=$API_KEY_FROM_SYSTEM_ENV
 ```
 
 Now you can import it in your **.js** file.
 
 ```js
-import { API_KEY, ANOTHER_CONFIG } from 'react-native-dotenv'
+import { API_KEY, ANOTHER_CONFIG, ANOTHER_API_KEY } from 'react-native-dotenv'
 
-ApiClient.init(API_KEY, ANOTHER_CONFIG)
+ApiClient.init(API_KEY, ANOTHER_CONFIG, ANOTHER_API_KEY)
 ```
 
 ## How does it work?
 
-As you can see, it's implemented as a babel plugin. All referenced imported members are replaced as the values specified in the **.env** file.
+As you can see, it's implemented as a babel plugin. All referenced imported members are replaced as the values or environment variables specified in the **.env** file
 
-The example above will get compiled as below.
+The example above will get compiled as below, assuming your system environment variable `API_KEY_FROM_SYSTEM_ENV` is `this_value_is_from_system_env`
 
 ```js
-
-ApiClient.init('lorem', 'foobar')
+ApiClient.init('lorem', 'foobar', 'this_value_is_from_system_env')
 ```
+
 
 ## FAQ
 
