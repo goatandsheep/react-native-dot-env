@@ -11,12 +11,10 @@ var createPluginsWithConfigDir = function(configDir) {
 }
 
 describe('myself in some tests', function() {
-  it('should throw if variable not exist', function() {
-    expect(function(){
-      babel.transformFileSync('test/fixtures/variable-not-exist/source.js')
-    }).to.throwException(function (e) {
-      expect(e.message).to.contain("Try to import dotenv variable \"foo\" which is not defined in any .env files.");
-    });
+  it('should set to undefined if variable does not exist', function() {
+    const result = babel.transformFileSync('test/fixtures/variable-not-exist/source.js')
+    console.log(result.code)
+    expect(result.code).to.be('"use strict";\n\nconsole.log(undefined);')
   });
 
   it('should throw if default is imported', function() {
