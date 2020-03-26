@@ -1,5 +1,5 @@
 {
-  "name": "babel-plugin-dotenv",
+  "name": "babel-plugin-dotenv-milkywire",
   "version": "0.1.1",
   "description": "Load environment variables from .env file using import statement",
   "main": "index.js",
