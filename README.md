@@ -1,22 +1,22 @@
-# react-native-dotenv
+# rn-dotenv
 
 Let you `import` environment variables from a **.env** file in React Native, **don't** need any native code integration.
 
-[![CircleCI](https://circleci.com/gh/zetachang/react-native-dotenv.svg?style=svg)](https://circleci.com/gh/zetachang/react-native-dotenv)
-[![npm version](https://img.shields.io/npm/v/react-native-dotenv.svg?style=flat-square)](https://www.npmjs.com/package/react-native-dotenv)
-[![npm downloads](https://img.shields.io/npm/dt/react-native-dotenv.svg?style=flat-square)](https://www.npmjs.com/package/react-native-dotenv)
+[![CircleCI](https://circleci.com/gh/zetachang/rn-dotenv.svg?style=svg)](https://circleci.com/gh/zetachang/rn-dotenv)
+[![npm version](https://img.shields.io/npm/v/rn-dotenv.svg?style=flat-square)](https://www.npmjs.com/package/rn-dotenv)
+[![npm downloads](https://img.shields.io/npm/dt/rn-dotenv.svg?style=flat-square)](https://www.npmjs.com/package/rn-dotenv)
 
 ## Install
 
 ```sh
-$ npm install react-native-dotenv --save-dev
+$ npm install rn-dotenv --save-dev
 ```
 
-Add the `react-native-dotenv` preset to your **.babelrc** file at the project root.
+Add the `rn-dotenv` preset to your **.babelrc** file at the project root.
 
 ```json
 {
-  "presets": ["module:metro-react-native-babel-preset", "module:react-native-dotenv"]
+  "presets": ["module:metro-react-native-babel-preset", "module:rn-dotenv"]
 }
 ```
 
@@ -38,7 +38,7 @@ ANOTHER_CONFIG=foobar
 Now you can import it in your **.js** file.
 
 ```js
-import { API_KEY, ANOTHER_CONFIG } from 'react-native-dotenv'
+import { API_KEY, ANOTHER_CONFIG } from 'rn-dotenv'
 
 ApiClient.init(API_KEY, ANOTHER_CONFIG)
 ```
@@ -58,7 +58,7 @@ ApiClient.init('lorem', 'foobar')
 
 ### Changes to .env file is not updated
 
-Manually edit the file importing `react-native-dotenv` by either adding an empty line or whitespace will work.
+Manually edit the file importing `rn-dotenv` by either adding an empty line or whitespace will work.
 
 ### Can I use different **.env** settings for production ?
 
