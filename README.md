@@ -2,7 +2,7 @@
 
 Let you `import` environment variables from a **.env** file in React Native, **don't** need any native code integration.
 
-[![CircleCI](https://circleci.com/gh/zetachang/rn-dotenv.svg?style=svg)](https://circleci.com/gh/zetachang/rn-dotenv)
+[![CircleCI](https://circleci.com/gh/goatandsheep/rn-dotenv.svg?style=svg)](https://circleci.com/gh/goatandsheep/rn-dotenv)
 [![npm version](https://img.shields.io/npm/v/rn-dotenv.svg?style=flat-square)](https://www.npmjs.com/package/rn-dotenv)
 [![npm downloads](https://img.shields.io/npm/dt/rn-dotenv.svg?style=flat-square)](https://www.npmjs.com/package/rn-dotenv)
 
@@ -83,8 +83,7 @@ Sadly, it's not available so far. One of the workaround is generating **.env** f
 
 ## Contact
 
-[David Chang](http://github.com/zetachang)
-[@zetachang](https://twitter.com/zetachang)
+[Kemal Ahmed](http://github.com/goatandsheep)
 
 ## LICENSE
 
