@@ -26,6 +26,14 @@ If you haven't got **.babelrc** set up for React Native, remember to install `me
 $ npm install metro-react-native-babel-preset --save-dev
 ```
 
+You may have to reset cache before this works:
+
+```sh
+$ npm start -- --reset-cache
+$ yarn start --reset-cache
+$ npx react-native start --reset-cache
+```
+
 ## Usage
 
 Add your app configuration in an **.env** file.
