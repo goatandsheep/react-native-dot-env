@@ -102,6 +102,10 @@ react-native run-ios --configuration Release
 
 Sadly, it's not available so far. One of the workaround is generating **.env** file before triggering RN's bundle script automatically using either shell script or your own custom build pipeline.
 
+### How do I use this with Continuous Integration?
+
+When using a CI tool you will have to write the environment variables to the `.env` file. In Github Actions you may for example add a line like `echo -e "${{ secrets.DOTENV }}" > .env`.
+
 ## Contact
 
 [Kemal Ahmed](http://github.com/goatandsheep)
