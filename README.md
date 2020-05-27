@@ -43,6 +43,27 @@ import { API_KEY, ANOTHER_CONFIG } from 'rn-dotenv'
 ApiClient.init(API_KEY, ANOTHER_CONFIG)
 ```
 
+### Typescript
+If you're using this in a Typescript react native project, Typescript will complain that the named import does not exist in the package.
+
+Here's a solution to solve the problem.
+
+Steps
+1. Create a file `env.d.ts` (The filename doesn't matter, as long it ends with `.d.ts`)
+2. In the file write the following (for this example, I'll use `API_KEY` as the environment variable)
+```ts
+declare module 'react-native-dotenv' {
+  /**
+   * API key
+   */
+  export const API_KEY: string;
+}
+
+```
+3. Now import the enviornment variable and your good to go. Ex: ` import { API_KEY } from 'react-native-dotenv'`
+
+Solution provided by https://github.com/zetachang/react-native-dotenv/issues/76#issuecomment-585171009
+
 ## How does it work?
 
 As you can see, it's implemented as a babel plugin. All referenced imported members are replaced as the values specified in the **.env** file.
