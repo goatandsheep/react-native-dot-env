@@ -60,7 +60,7 @@ Steps
 1. Create a file `env.d.ts` (The filename doesn't matter, as long it ends with `.d.ts`)
 2. In the file write the following (for this example, I'll use `API_KEY` as the environment variable)
 ```ts
-declare module 'react-native-dotenv' {
+declare module 'rn-dotenv' {
   /**
    * API key
    */
@@ -68,7 +68,7 @@ declare module 'react-native-dotenv' {
 }
 
 ```
-3. Now import the enviornment variable and your good to go. Ex: ` import { API_KEY } from 'react-native-dotenv'`
+3. Now import the enviornment variable and your good to go. Ex: ` import { API_KEY } from 'rn-dotenv'`
 
 Solution provided by https://github.com/zetachang/react-native-dotenv/issues/76#issuecomment-585171009
 
