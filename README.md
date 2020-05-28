@@ -1,5 +1,7 @@
 # react-native-dotenv
 
+## Deprecated due to security vulnterabilities in favor of [babel-plugin-dotenv-import](https://www.npmjs.com/package/babel-plugin-dotenv-import)
+
 Let you `import` environment variables from a **.env** file in React Native, **don't** need any native code integration.
 
 [![CircleCI](https://circleci.com/gh/zetachang/react-native-dotenv.svg?style=svg)](https://circleci.com/gh/zetachang/react-native-dotenv)
