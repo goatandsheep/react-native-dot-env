@@ -1,6 +1,6 @@
 # rn-dotenv
 
-# NOTE: [npm babel-plugin-dotenv-import](https://github.com/tusbar/babel-plugin-dotenv-import) is the new rewrite location
+# NOTE: [npm react-native-dotenv](https://github.com/goatandsheep/react-native-dotenv) is the new rewrite location
 
 Let you `import` environment variables from a **.env** file in React Native, **don't** need any native code integration. This is the maintained fork of the abandoned repository. 
 
