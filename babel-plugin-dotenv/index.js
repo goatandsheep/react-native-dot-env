@@ -20,10 +20,15 @@ module.exports = function (data) {
                 var configFile = options.filename ? options.filename : '.env';
 
                 if (path.node.source.value === options.replacedModuleName) {
+                  var babelEnv = process.env.BABEL_ENV;
+                  var env = (!babelEnv || babelEnv === 'development') ? 'development' : 'production';
+                  var platformPath = configFile + '.' + env;
+
+                  if (process.env.ENV_FILE) {
+                    platformPath = process.env.ENV_FILE;
+                  }
+
                   var config = dotEnv.config({ path: sysPath.join(configDir, configFile), silent: true }) || {};
-                  var platformPath = (process.env.BABEL_ENV === 'development' || process.env.BABEL_ENV === undefined)
-                                          ? configFile + '.development'
-                                          : configFile + '.production';
                   var config = Object.assign(config, dotEnv.config({ path: sysPath.join(configDir, platformPath), silent: true }));
 
                   path.node.specifiers.forEach(function(specifier, idx){
